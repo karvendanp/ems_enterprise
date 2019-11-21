@@ -17,7 +17,21 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "contact": [
+        "dist/contact"
+      ],
+      "contact/*": [
+        "dist/contact/*"
+      ],
+      "common": [
+        "dist/common"
+      ],
+      "common/*": [
+        "dist/common/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -2,5 +2,201 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "EmployeePortal": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/EmployeePortal",
+      "sourceRoot": "projects/EmployeePortal/src",
+      "prefix": "portal",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/EmployeePortal",
+            "index": "projects/EmployeePortal/src/index.html",
+            "main": "projects/EmployeePortal/src/main.ts",
+            "polyfills": "projects/EmployeePortal/src/polyfills.ts",
+            "tsConfig": "projects/EmployeePortal/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/EmployeePortal/src/favicon.ico",
+              "projects/EmployeePortal/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "projects/EmployeePortal/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/EmployeePortal/src/environments/environment.ts",
+                  "with": "projects/EmployeePortal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "EmployeePortal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "EmployeePortal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "EmployeePortal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/EmployeePortal/src/test.ts",
+            "polyfills": "projects/EmployeePortal/src/polyfills.ts",
+            "tsConfig": "projects/EmployeePortal/tsconfig.spec.json",
+            "karmaConfig": "projects/EmployeePortal/karma.conf.js",
+            "assets": [
+              "projects/EmployeePortal/src/favicon.ico",
+              "projects/EmployeePortal/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "projects/EmployeePortal/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/EmployeePortal/tsconfig.app.json",
+              "projects/EmployeePortal/tsconfig.spec.json",
+              "projects/EmployeePortal/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/EmployeePortal/e2e/protractor.conf.js",
+            "devServerTarget": "EmployeePortal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "EmployeePortal:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "projectType": "library",
+      "root": "projects/contact",
+      "sourceRoot": "projects/contact/src",
+      "prefix": "cnt",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/contact/tsconfig.lib.json",
+            "project": "projects/contact/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/contact/src/test.ts",
+            "tsConfig": "projects/contact/tsconfig.spec.json",
+            "karmaConfig": "projects/contact/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/contact/tsconfig.lib.json",
+              "projects/contact/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "common": {
+      "projectType": "library",
+      "root": "projects/common",
+      "sourceRoot": "projects/common/src",
+      "prefix": "cmn",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/common/tsconfig.lib.json",
+            "project": "projects/common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/common/src/test.ts",
+            "tsConfig": "projects/common/tsconfig.spec.json",
+            "karmaConfig": "projects/common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/common/tsconfig.lib.json",
+              "projects/common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "EmployeePortal"
 }
