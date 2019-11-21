@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateModule } from 'projects/common/src/public-api';
 import { UserModule } from 'projects/contact/src/public-api';
+import { CountrymanagementModule } from 'projects/country/src/projects';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserModule } from 'projects/contact/src/public-api';
     AppRoutingModule,
     BrowserAnimationsModule,
     TemplateModule,
-    UserModule
+    UserModule,
+    CountrymanagementModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

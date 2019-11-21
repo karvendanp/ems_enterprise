@@ -1,0 +1,12 @@
+<table>
+    <tr>
+     <th>Code</th>
+     <th>Name</th>
+     <th>Continent</th>
+    </tr>
+    <tr *ngFor="let country of countries;">
+      <td>{{ country.code}}</td>
+      <td>{{ country.name}}</td>
+      <td>{{ country.continent}}</td>
+    </tr>
+</table>

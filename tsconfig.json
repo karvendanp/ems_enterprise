@@ -30,6 +30,12 @@
       ],
       "common/*": [
         "dist/common/*"
+      ],
+      "country": [
+        "dist/country"
+      ],
+      "country/*": [
+        "dist/country/*"
       ]
     }
   },

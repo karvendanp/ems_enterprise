@@ -196,6 +196,41 @@
           }
         }
       }
+    },
+    "country": {
+      "projectType": "library",
+      "root": "projects/country",
+      "sourceRoot": "projects/country/src",
+      "prefix": "cny",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/country/tsconfig.lib.json",
+            "project": "projects/country/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/country/src/test.ts",
+            "tsConfig": "projects/country/tsconfig.spec.json",
+            "karmaConfig": "projects/country/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/country/tsconfig.lib.json",
+              "projects/country/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "EmployeePortal"
