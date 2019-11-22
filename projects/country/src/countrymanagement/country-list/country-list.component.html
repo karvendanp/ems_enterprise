@@ -3,10 +3,12 @@
      <th>Code</th>
      <th>Name</th>
      <th>Continent</th>
+     <th>View</th>
     </tr>
     <tr *ngFor="let country of countries;">
       <td>{{ country.code}}</td>
       <td>{{ country.name}}</td>
       <td>{{ country.continent}}</td>
+      <td><a [routerLink]="['/countrydetail',country.code]">View</a></td>
     </tr>
 </table>

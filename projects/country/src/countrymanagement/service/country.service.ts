@@ -10,4 +10,7 @@ export class CountryService {
    public getCountries(){
      return this.http.get(this.apiURL + "country");
    }
+   public getCountry(code:string){
+    return this.http.get(this.apiURL + "country/" + code);
+  }
 }

@@ -1,0 +1,28 @@
+<div class="container">
+
+<div class="row">
+    <div class="col-25">
+    <label for="codehead"> Country Code</label>
+    </div>
+    <div class="col-75">
+   <label for="code">{{ countrydetail.code }}</label>
+  </div>
+</div>
+ <div class="row">
+        <div class="col-25">
+        <label for="cname"> Country Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" [(ngModel)]="countrydetail.name"/>
+      </div>
+   </div>
+   <div class="row">
+        <div class="col-25">
+        <label for="cname"> Country Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" [(ngModel)]="countrydetail.continent"/>
+      </div>
+   </div>
+
+</div>

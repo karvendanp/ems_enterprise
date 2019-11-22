@@ -1,0 +1,14 @@
+table{
+    width: 90%;
+    border-block-start-color: chartreuse;
+    border:chocolate;
+    border-width: 0vmin;
+    
+}
+
+th, td r{
+   background-color: cornflowerblue;
+   width: 30%;
+   text-align: left;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
