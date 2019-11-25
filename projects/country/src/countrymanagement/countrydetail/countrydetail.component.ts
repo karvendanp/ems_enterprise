@@ -23,11 +23,7 @@ export class CountrydetailComponent implements OnInit {
   
   });
   }
-  saveCountry2(){
-    console.log("save it");
-    console.log(this.countrydetail.name);
-   this.countryService.updateCountry(this.countrydetail);
-  }
+
   saveCountry() {
     this.countryService.updateCountry(this.countrydetail)
       .subscribe(data => console.log(data), error => console.log(error));
@@ -35,6 +31,6 @@ export class CountrydetailComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/employeelist']);
+    this.router.navigate(['/countrylist']);
   }
 }
