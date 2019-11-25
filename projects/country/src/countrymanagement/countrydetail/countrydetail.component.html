@@ -18,11 +18,19 @@
    </div>
    <div class="row">
         <div class="col-25">
-        <label for="cname"> Country Name</label>
+        <label for="cname"> Continent</label>
         </div>
         <div class="col-75">
           <input type="text" [(ngModel)]="countrydetail.continent"/>
       </div>
    </div>
-
+   <div class="row">
+    <div class="col-25">
+    </div>
+    <div class="col-button">
+     <div class="divbutton">
+        <input type="button" value="Back" routerLink="/countrylist"/></div> 
+     <div class="divbutton"> <input type="submit" (click)="saveCountry()" value="Save"/> </div>
+  </div>
+</div>
 </div>

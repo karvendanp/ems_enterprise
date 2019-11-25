@@ -9,9 +9,8 @@ import { Country } from '../models/country';
 })
 export class CountryListComponent implements OnInit {
 
-   countries:Country = [];
+   countries:Country[];
   constructor(private countryService : CountryService) { }
-
   ngOnInit() {
     this.countryService.getCountries().subscribe((data)=>{
       this.countries = data;
