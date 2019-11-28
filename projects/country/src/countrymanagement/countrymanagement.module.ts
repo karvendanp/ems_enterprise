@@ -13,7 +13,7 @@ const routes:Routes = [
    component:CountryListComponent
  },
  {
-   path:'countrydetail/:code',
+   path:'countrydetail',
    component:CountrydetailComponent
  }
 ];

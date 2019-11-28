@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { Country } from '../models/country';
-import { Observable,of  } from 'rxjs';
+import { Observable,of, BehaviorSubject  } from 'rxjs';
 import 'rxjs/add/operator/map';
 import {catchError, retry} from 'rxjs/internal/operators';
 
@@ -15,17 +15,28 @@ const httpOptions = {
 @Injectable()
 export class CountryService {
 
+private countryInfo: BehaviorSubject<Country> = new BehaviorSubject<Country>({} as Country);
+public countyInfo$ = this.countryInfo.asObservable();
+
+private countrycollection: BehaviorSubject<Country[]> = new BehaviorSubject<Country[]>([]);
+public countrycollection$ = this.countrycollection.asObservable();
+
+updateCountryInfo(country: Country): void {
+  this.countryInfo.next(country);
+}
+
+updateCountryCollection(country: Country[]): void {
+  this.countrycollection.next(country);
+}
+
   apiURL:string = "http://localhost:9090/api/";
   constructor(private http : HttpClient) { }
        
    public getCountries():Observable<Country[]>{
-    return this.http.get(this.apiURL + "country").map(res => <Country[]>res); 
+    return this.http.get<Country[]>(this.apiURL + "country"); 
   }
    public getCountry(code:string):Observable<Country>{
-    return this.http.get<Country>(this.apiURL + "country/" + code).map(res => <Country>res);
-  }
-  public updateCountry2(country: Country): Observable<Object> {
-    return this.http.put(`${this.apiURL + "country/"}/${country.code}`, country);
+    return this.http.get<Country>(this.apiURL + "country/" + code);
   }
   public updateCountry(country: Country): Observable<Country> {
     return this.http.put<Country>(this.apiURL + "country/", country)

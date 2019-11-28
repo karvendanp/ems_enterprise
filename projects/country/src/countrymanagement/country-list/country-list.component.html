@@ -9,6 +9,7 @@
       <td>{{ country.code}}</td>
       <td>{{ country.name}}</td>
       <td>{{ country.continent}}</td>
-      <td><a [routerLink]="['/countrydetail',country.code]">View</a></td>
+      <!-- <td><a [routerLink]="['/countrydetail',country.code]">View</a></td> -->
+      <td><button (click)="countryDetails(country)">View</button></td>
     </tr>
 </table>
